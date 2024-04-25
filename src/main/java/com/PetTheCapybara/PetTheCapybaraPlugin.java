@@ -88,7 +88,7 @@ public class PetTheCapybaraPlugin extends Plugin
 		Player local = client.getLocalPlayer();
 
 		local.setOverheadText(rollRandomLine());
-		local.setOverheadCycle(50);
+		local.setOverheadCycle(75);
 		local.setAnimation(827);
 		local.setActionFrame(0);
 	}
