@@ -4,6 +4,8 @@ public class CapyLines {
     public String[] GetCapyLines(){
 
         final String[] capyLines = {
+                "Coconut doggyyyyyyy!!!!",
+                "Capybara Capybara Capybara Capybara",
                 "You're the gentle giant of the riverbank!",
                 "Capy cuteness level: off the charts!",
                 "Wiggle those whiskers, you adorable fuzzball!",
@@ -14,13 +16,12 @@ public class CapyLines {
                 "With every pat, the world feels warmer!",
                 "You bring joy wherever you waddle!",
                 "Capybara kisses are the best kind of kisses!",
-                "You're the king/queen of the cuddle puddle!",
+                "You're the king of the cuddle puddle!",
                 "Thanks for being the ray of sunshine on a rainy day!",
                 "Who needs a teddy bear when you have a capybara?",
                 "You're the fluffiest friend a human could ask for!",
                 "Your squeaks are like music to my ears!",
                 "If cuteness were a currency, you'd be a billionaire!",
-                "You're the MVP (Most Valuable Puddle) of the pond!",
                 "Capy cuddles are like warm hugs from nature!",
                 "You're the guardian of the grasslands!",
                 "Capybara cuteness overload!",
