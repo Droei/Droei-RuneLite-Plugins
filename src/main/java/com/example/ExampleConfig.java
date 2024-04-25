@@ -7,6 +7,7 @@ import net.runelite.client.config.ConfigItem;
 @ConfigGroup("example")
 public interface ExampleConfig extends Config
 {
+	//test
 	@ConfigItem(
 		keyName = "greeting",
 		name = "Welcome Greeting",
