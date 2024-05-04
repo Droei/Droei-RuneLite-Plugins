@@ -1,8 +1,7 @@
-package net.runelite.client.plugins.PetTheCapybara.src.test.java.com.PetTheCapybara;
+package be.Droei.PetTheCapybara;
 
 import net.runelite.client.RuneLite;
 import net.runelite.client.externalplugins.ExternalPluginManager;
-import net.runelite.client.plugins.PetTheCapybara.src.main.java.com.PetTheCapybara.PetTheCapybaraPlugin;
 
 public class PetTheCapybaraPluginTest
 {

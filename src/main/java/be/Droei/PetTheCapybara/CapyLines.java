@@ -1,4 +1,4 @@
-package net.runelite.client.plugins.PetTheCapybara.src.main.java.com.PetTheCapybara;
+package be.Droei.PetTheCapybara;
 
 public class CapyLines {
     public String[] GetCapyLines(){

@@ -1,4 +1,4 @@
-package net.runelite.client.plugins.PetTheCapybara.src.main.java.com.PetTheCapybara;
+package be.Droei.PetTheCapybara;
 
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.*;
