@@ -70,7 +70,6 @@ public class EntityMaskerPlugin extends Plugin
     {
         log.info("Entity Masker stopped!");
 //        npcOverlayService.unregisterHighlighter(isHighlighted);
-
     }
 
 
