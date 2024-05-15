@@ -15,8 +15,8 @@ import java.util.Map;
 import java.util.function.Function;
 
 public class MaskManager {
-   @Getter(AccessLevel.PACKAGE)
-   final Map<NPC, HighlightedNpc> highlightedNpcs = new HashMap<>();
+
+   public Map<NPC, HighlightedNpc> highlightedNpcs = new HashMap<>();
    final Function<NPC, HighlightedNpc> isHighlighted = highlightedNpcs::get;
    final NpcOverlayService npcOverlayService;
    final Hooks hooks;
@@ -28,17 +28,26 @@ public class MaskManager {
         this.config = config;
     }
     public void maskEntities(List<NPC> npcs){
+        highLightNpcs(npcs);
+        npcOverlayService.registerHighlighter(isHighlighted);
+    }
+
+    public void clearAllMasksList(List<NPC> npcs){
+        highLightNpcs(npcs);
+        npcOverlayService.unregisterHighlighter(isHighlighted);
+    }
+
+    public void highLightNpcs(List<NPC> npcs){
         highlightedNpcs.clear();
         for(NPC npc : npcs){
             highlightedNpcs.put(npc, HighlightedNpc
-                .builder()
-                .highlightColor(config.getBorderAndTextColor())
-                .npc(npc)
-                .hull(true)
-                .fillColor(config.getMaskColor())
-                .name(config.showEntityName())
-                .build());
+                    .builder()
+                    .highlightColor(config.getBorderAndTextColor())
+                    .npc(npc)
+                    .hull(true)
+                    .fillColor(config.getMaskColor())
+                    .name(config.showEntityName())
+                    .build());
         }
-        npcOverlayService.registerHighlighter(isHighlighted);
     }
 }

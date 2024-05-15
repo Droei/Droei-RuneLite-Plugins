@@ -1,7 +1,7 @@
 package be.droei.entityMasker.managers;
 
 import be.droei.entityMasker.config.EntityMaskerConfig;
-import be.droei.entityMasker.enums.npcStringEnum;
+import be.droei.entityMasker.enums.NpcStringEnum;
 import lombok.Getter;
 import net.runelite.api.Client;
 import net.runelite.api.NPC;
@@ -31,10 +31,10 @@ public class EntityManager {
 
         if (configNpcs.isEmpty()) return Collections.emptyList();
 
-        if(config.epilepsy()) configNpcs += npcStringEnum.EPILEPSY.getNpcString();
-        if(config.arachnophobia()) configNpcs += npcStringEnum.ARACHNOPHOBIA.getNpcString();
-        if(config.ophidiophobia()) configNpcs += npcStringEnum.OPHIDIOPHOBIA.getNpcString();
-        if(config.cynophobia()) configNpcs += npcStringEnum.CYNOPHOBIA.getNpcString();
+        if(config.epilepsy()) configNpcs += NpcStringEnum.EPILEPSY.getNpcString();
+        if(config.arachnophobia()) configNpcs += NpcStringEnum.ARACHNOPHOBIA.getNpcString();
+        if(config.ophidiophobia()) configNpcs += NpcStringEnum.OPHIDIOPHOBIA.getNpcString();
+        if(config.cynophobia()) configNpcs += NpcStringEnum.CYNOPHOBIA.getNpcString();
 
         List<String> output = Text.fromCSV(configNpcs);
 

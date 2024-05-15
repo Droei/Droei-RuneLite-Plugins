@@ -3,6 +3,8 @@ package be.droei.entityMasker;
 import javax.inject.Inject;
 
 import be.droei.entityMasker.config.EntityMaskerConfig;
+import be.droei.entityMasker.managers.EntityManager;
+import be.droei.entityMasker.managers.MaskManager;
 import be.droei.entityMasker.overlay.EntityMaskerPluginOverlay;
 import com.google.inject.ProvidedBy;
 import com.google.inject.Provides;
@@ -22,6 +24,7 @@ import net.runelite.client.game.npcoverlay.NpcOverlayService;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.overlay.OverlayManager;
+import net.runelite.client.ui.overlay.OverlayUtil;
 
 import java.awt.*;
 import java.util.*;
@@ -38,9 +41,11 @@ import java.util.function.Function;
 public class EntityMaskerPlugin extends Plugin
 {
     @Inject
-    private OverlayManager overlayManager;
+    OverlayManager overlayManager;
+
     @Inject
     EntityMaskerPluginOverlay entityMaskerPluginOverlay;
+
     @Override
     protected void startUp()
     {
@@ -49,6 +54,8 @@ public class EntityMaskerPlugin extends Plugin
     @Override
     protected void shutDown()
     {
+        entityMaskerPluginOverlay.clear();
+        overlayManager.remove(entityMaskerPluginOverlay);
     }
     @Provides
     EntityMaskerConfig entityMaskerConfig(ConfigManager configManager){

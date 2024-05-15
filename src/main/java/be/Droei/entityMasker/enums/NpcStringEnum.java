@@ -9,7 +9,7 @@ public enum NpcStringEnum {
     CYNOPHOBIA(",Jackal,Temple guardian,Guard dog,Wild dog,Shadow hound,Reanimated dog");
 
     private final String npcString;
-    npcStringEnum(String entityLine){
+    NpcStringEnum(String entityLine){
         this.npcString = entityLine;
     }
 
