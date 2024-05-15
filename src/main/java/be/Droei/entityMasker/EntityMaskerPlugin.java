@@ -45,13 +45,10 @@ public class EntityMaskerPlugin extends Plugin
     protected void startUp()
     {
         overlayManager.add(entityMaskerPluginOverlay);
-
-        log.info("Entity Masker started!");
     }
     @Override
     protected void shutDown()
     {
-        log.info("Entity Masker stopped!");
     }
     @Provides
     EntityMaskerConfig entityMaskerConfig(ConfigManager configManager){

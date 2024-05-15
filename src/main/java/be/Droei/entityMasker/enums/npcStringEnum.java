@@ -1,6 +1,6 @@
 package be.droei.entityMasker.enums;
 
-public enum NpcStringEnum {
+public enum npcStringEnum {
     EPILEPSY(",Wyrm,Killerwatt"),
     ARACHNOPHOBIA(",Spider,Blessed spider,Crypt spider,Deadly red spider,Fever spider,Giant crypt spider," +
             "Giant spider,Ice spider,Jungle spider,Poison spider,Shadow spider,Sarachnis," +
@@ -9,7 +9,7 @@ public enum NpcStringEnum {
     CYNOPHOBIA(",Jackal,Temple guardian,Guard dog,Wild dog,Shadow hound,Reanimated dog");
 
     private final String npcString;
-    NpcStringEnum(String entityLine){
+    npcStringEnum(String entityLine){
         this.npcString = entityLine;
     }
 
