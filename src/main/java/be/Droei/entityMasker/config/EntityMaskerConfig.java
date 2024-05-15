@@ -74,7 +74,7 @@ public interface EntityMaskerConfig extends Config {
     )
     default String getNpcToHighlight()
     {
-        return "Cow,Rat";
+        return "name,don't mask capybaras,name";
     }
 
     @ConfigItem(

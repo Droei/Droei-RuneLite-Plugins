@@ -1,5 +1,13 @@
 plugins {
 	id 'java'
+	id "com.github.johnrengelman.shadow" version "6.1.0"
+}
+shadowJar {
+	from sourceSets.test.output
+	configurations = [project.configurations.testRuntimeClasspath]
+	manifest {
+		attributes "Main-Class": "be.droei.entityMasker.EntityMaskerPluginTest"
+	}
 }
 
 repositories {
@@ -23,7 +31,7 @@ dependencies {
 	testImplementation group: 'net.runelite', name:'jshell', version: runeLiteVersion
 }
 
-group = 'com.example'
+group = 'be.droei.entityMasker'
 version = '1.0-SNAPSHOT'
 
 tasks.withType(JavaCompile) {

@@ -1,4 +1,4 @@
-package be.droei.entityMasker.Managers;
+package be.droei.entityMasker.managers;
 
 import be.droei.entityMasker.config.EntityMaskerConfig;
 import lombok.AccessLevel;
@@ -29,7 +29,6 @@ public class MaskManager {
         this.npcOverlayService = npcOverlayService;
         this.config = config;
     }
-
     public void maskEntities(List<NPC> npcs){
         highlightedNpcs.clear();
         for(NPC npc : npcs){

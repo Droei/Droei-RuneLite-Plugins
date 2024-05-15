@@ -1,4 +1,4 @@
-package be.droei.entityMasker.Managers;
+package be.droei.entityMasker.managers;
 
 import be.droei.entityMasker.config.EntityMaskerConfig;
 import be.droei.entityMasker.enums.NpcStringEnum;
