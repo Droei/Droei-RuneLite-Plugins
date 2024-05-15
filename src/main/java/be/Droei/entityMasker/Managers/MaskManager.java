@@ -21,8 +21,6 @@ public class MaskManager {
    final NpcOverlayService npcOverlayService;
    final Hooks hooks;
    final EntityMaskerConfig config;
-
-
     @Inject
     public MaskManager(Hooks hooks, NpcOverlayService npcOverlayService, EntityMaskerConfig config){
         this.hooks = hooks;
@@ -40,9 +38,7 @@ public class MaskManager {
                 .fillColor(config.getMaskColor())
                 .name(config.showEntityName())
                 .build());
-
         }
-
         npcOverlayService.registerHighlighter(isHighlighted);
     }
 }

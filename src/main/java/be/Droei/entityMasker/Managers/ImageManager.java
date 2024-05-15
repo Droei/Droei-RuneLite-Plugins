@@ -34,7 +34,6 @@ public class ImageManager {
             {
                 OverlayUtil.renderImageLocation(graphics, imageLocation, img);
             }
-
         }
     }
 

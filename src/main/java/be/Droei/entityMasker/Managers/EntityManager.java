@@ -43,7 +43,6 @@ public class EntityManager {
                 if(WildcardMatcher.matches(npc.getName(), name))
                     entities.add(npc);
             }
-
         }
         return entities;
     }

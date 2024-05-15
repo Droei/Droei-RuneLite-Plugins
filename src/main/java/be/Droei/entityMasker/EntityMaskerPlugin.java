@@ -31,16 +31,12 @@ import java.util.function.Function;
 @Slf4j
 @PluginDescriptor(
         name = "Entity Masker",
-        description = "A plugin made to mask out entities that can potentially disturb players due to mental or physical problems",
+        description = "A plugin made to mask out entities that can potentially disturb players",
         tags = {"entity", "medical", "phobia", "epilepsy"}
 
 )
 public class EntityMaskerPlugin extends Plugin
 {
-    @Inject
-    Client client;
-    //Mountain troll
-    // targets.contains(name)
     @Inject
     private OverlayManager overlayManager;
     @Inject
@@ -52,28 +48,11 @@ public class EntityMaskerPlugin extends Plugin
 
         log.info("Entity Masker started!");
     }
-
-//    @Subscribe
-//    public void onClientTick(ClientTick clientTick) {
-//        WorldMap worldMap = client.getWorldMap();
-//        WorldMapRenderer wmm = worldMap.getWorldMapRenderer();
-//
-//        if (!wmm.isLoaded())
-//        {
-//            return;
-//        }
-//    }
-
-
     @Override
     protected void shutDown()
     {
         log.info("Entity Masker stopped!");
-//        npcOverlayService.unregisterHighlighter(isHighlighted);
     }
-
-
-
     @Provides
     EntityMaskerConfig entityMaskerConfig(ConfigManager configManager){
         return configManager.getConfig(EntityMaskerConfig.class);
