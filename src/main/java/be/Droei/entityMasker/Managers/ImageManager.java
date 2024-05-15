@@ -26,14 +26,13 @@ public class ImageManager {
     public void placeImage(List<NPC> npcs, Graphics2D graphics, Client client){
         int cameraZoom = (int) (Math.round((getZoom(client) / 8.96) * entityMaskerConfig.getImageScaling()));
 
-        final BufferedImage smiley = resize(ImageUtil.loadImageResource(EntityMaskerPluginOverlay.class, "/capy.png"), cameraZoom, cameraZoom) ;
-        System.out.println();
+        final BufferedImage img = resize(ImageUtil.loadImageResource(EntityMaskerPluginOverlay.class, "/Jad.png"), cameraZoom, cameraZoom) ;
 
         for (NPC npc : npcs){
-            Point imageLocation = npc.getCanvasImageLocation(smiley, npc.getLogicalHeight());
+            Point imageLocation = npc.getCanvasImageLocation(img, npc.getLogicalHeight());
             if (imageLocation != null)
             {
-                OverlayUtil.renderImageLocation(graphics, imageLocation, smiley);
+                OverlayUtil.renderImageLocation(graphics, imageLocation, img);
             }
 
         }

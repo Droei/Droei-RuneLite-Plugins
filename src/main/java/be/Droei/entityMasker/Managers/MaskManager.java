@@ -45,6 +45,5 @@ public class MaskManager {
         }
 
         npcOverlayService.registerHighlighter(isHighlighted);
-//        hooks.registerRenderableDrawListener(drawListener);
     }
 }

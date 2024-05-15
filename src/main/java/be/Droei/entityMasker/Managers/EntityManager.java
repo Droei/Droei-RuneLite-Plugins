@@ -25,14 +25,6 @@ public class EntityManager {
         this.config = config; //quiiiiiiiiiiiiiiiiiiiii
     }
 
-    public List<NPC> updateAllEntities() {
-        entities.clear();
-        for (NPC npc : client.getNpcs()) {
-            entities.add(npc);
-        }
-        return entities;
-    }
-
     public List<NPC> updateConfigEntities(){
         entities.clear();
         String configNpcs = config.getNpcToHighlight();
@@ -42,8 +34,8 @@ public class EntityManager {
         if(config.epilepsy()) configNpcs += NpcStringEnum.EPILEPSY.getNpcString();
         if(config.arachnophobia()) configNpcs += NpcStringEnum.ARACHNOPHOBIA.getNpcString();
         if(config.ophidiophobia()) configNpcs += NpcStringEnum.OPHIDIOPHOBIA.getNpcString();
+        if(config.cynophobia()) configNpcs += NpcStringEnum.CYNOPHOBIA.getNpcString();
 
-        System.out.println(configNpcs);
         List<String> output = Text.fromCSV(configNpcs);
 
         for (NPC npc : client.getNpcs()) {

@@ -91,7 +91,7 @@ public interface EntityMaskerConfig extends Config {
     @ConfigItem(
             position = 8,
             keyName = "arachnophobia",
-            name = "arachnophobia - mask spiders",
+            name = "Arachnophobia - mask spiders",
             description = "Mask out all spiders"
     )
     default boolean arachnophobia()
@@ -106,6 +106,15 @@ public interface EntityMaskerConfig extends Config {
             description = "Mask out all snakes"
     )
     default boolean ophidiophobia() {
+        return false;
+    }
+    @ConfigItem(
+            position = 10,
+            keyName = "Cynophobia",
+            name = "Cynophobia - mask dogs",
+            description = "Mask out all dogs"
+    )
+    default boolean cynophobia() {
         return false;
     }
 }
