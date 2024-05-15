@@ -1,5 +1,6 @@
 package be.droei.entityMasker.Managers;
 
+import be.droei.entityMasker.config.EntityMaskerConfig;
 import lombok.AccessLevel;
 import lombok.Getter;
 import net.runelite.api.NPC;
@@ -8,36 +9,37 @@ import net.runelite.client.game.npcoverlay.HighlightedNpc;
 import net.runelite.client.game.npcoverlay.NpcOverlayService;
 
 import javax.inject.Inject;
-import java.awt.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 
 public class MaskManager {
-    @Getter(AccessLevel.PACKAGE)
-    private final Map<NPC, HighlightedNpc> highlightedNpcs = new HashMap<>();
-    private final Function<NPC, HighlightedNpc> isHighlighted = highlightedNpcs::get;
-    private final NpcOverlayService npcOverlayService;
-    Hooks hooks;
+   @Getter(AccessLevel.PACKAGE)
+   final Map<NPC, HighlightedNpc> highlightedNpcs = new HashMap<>();
+   final Function<NPC, HighlightedNpc> isHighlighted = highlightedNpcs::get;
+   final NpcOverlayService npcOverlayService;
+   final Hooks hooks;
+   final EntityMaskerConfig config;
+
 
     @Inject
-    public MaskManager(Hooks hooks, NpcOverlayService npcOverlayService){
+    public MaskManager(Hooks hooks, NpcOverlayService npcOverlayService, EntityMaskerConfig config){
         this.hooks = hooks;
         this.npcOverlayService = npcOverlayService;
+        this.config = config;
     }
 
     public void maskEntities(List<NPC> npcs){
+        highlightedNpcs.clear();
         for(NPC npc : npcs){
             highlightedNpcs.put(npc, HighlightedNpc
                 .builder()
-                .highlightColor(Color.white)
+                .highlightColor(config.getBorderAndTextColor())
                 .npc(npc)
                 .hull(true)
-//                    .fillColor(new Color(232, 149, 218, 100))
-                    .fillColor(Color.pink)
-                .name(true)
-//                .render(this::render)
+                .fillColor(config.getMaskColor())
+                .name(config.showEntityName())
                 .build());
 
         }

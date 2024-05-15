@@ -16,11 +16,11 @@ import java.util.List;
 
 public class EntityMaskerPluginOverlay extends Overlay {
 
-    EntityManager entityManager;
-    Client client;
-    EntityMaskerConfig config;
-    ImageManager imageManager;
-    MaskManager maskManager;
+    final EntityManager entityManager;
+    final Client client;
+    final EntityMaskerConfig config;
+    final ImageManager imageManager;
+    final MaskManager maskManager;
 
     @Inject
     private EntityMaskerPluginOverlay(EntityManager entityManager, Client client,
@@ -39,8 +39,9 @@ public class EntityMaskerPluginOverlay extends Overlay {
     @Override
     public Dimension render(Graphics2D graphics) {
 
-        List<NPC> npcs = entityManager.updateAllEntities();
-        imageManager.placeImage(npcs, graphics, client);
+        List<NPC> npcs = entityManager.updateConfigEntities();
+
+        if(config.showImages()) imageManager.placeImage(npcs, graphics, client);
         maskManager.maskEntities(npcs);
 
         return null;

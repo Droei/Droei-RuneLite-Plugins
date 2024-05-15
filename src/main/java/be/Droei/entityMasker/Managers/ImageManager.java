@@ -1,5 +1,6 @@
 package be.droei.entityMasker.Managers;
 
+import be.droei.entityMasker.config.EntityMaskerConfig;
 import be.droei.entityMasker.overlay.EntityMaskerPluginOverlay;
 import net.runelite.api.Client;
 import net.runelite.api.NPC;
@@ -8,15 +9,22 @@ import net.runelite.api.VarClientInt;
 import net.runelite.client.ui.overlay.OverlayUtil;
 import net.runelite.client.util.ImageUtil;
 
+import javax.inject.Inject;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.List;
 
 public class ImageManager {
 
-    public static void placeImage(List<NPC> npcs, Graphics2D graphics, Client client){
-        double imageSizeModifier = 5;
-        int cameraZoom = (int) (Math.round((getZoom(client) / 8.96) * imageSizeModifier));
+    final EntityMaskerConfig entityMaskerConfig;
+
+    @Inject
+    public ImageManager(EntityMaskerConfig entityMaskerConfig) {
+        this.entityMaskerConfig = entityMaskerConfig;
+    }
+
+    public void placeImage(List<NPC> npcs, Graphics2D graphics, Client client){
+        int cameraZoom = (int) (Math.round((getZoom(client) / 8.96) * entityMaskerConfig.getImageScaling()));
 
         final BufferedImage smiley = resize(ImageUtil.loadImageResource(EntityMaskerPluginOverlay.class, "/capy.png"), cameraZoom, cameraZoom) ;
         System.out.println();
@@ -31,7 +39,7 @@ public class ImageManager {
         }
     }
 
-    public static BufferedImage resize(BufferedImage img, int newW, int newH) {
+    public BufferedImage resize(BufferedImage img, int newW, int newH) {
         Image tmp = img.getScaledInstance(newW, newH, Image.SCALE_SMOOTH);
         BufferedImage dimg = new BufferedImage(newW, newH, BufferedImage.TYPE_INT_ARGB);
 
@@ -42,7 +50,7 @@ public class ImageManager {
         return dimg;
     }
 
-    private static int getZoom(Client client)
+    private int getZoom(Client client)
     {
         return client.getVarcIntValue(VarClientInt.CAMERA_ZOOM_FIXED_VIEWPORT);
     }

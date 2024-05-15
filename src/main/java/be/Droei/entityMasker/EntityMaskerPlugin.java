@@ -10,8 +10,13 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.*;
+import net.runelite.api.events.ClientTick;
+import net.runelite.api.worldmap.WorldMap;
+import net.runelite.api.worldmap.WorldMapData;
+import net.runelite.api.worldmap.WorldMapRenderer;
 import net.runelite.client.callback.Hooks;
 import net.runelite.client.config.ConfigManager;
+import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.game.npcoverlay.HighlightedNpc;
 import net.runelite.client.game.npcoverlay.NpcOverlayService;
 import net.runelite.client.plugins.Plugin;
@@ -19,10 +24,8 @@ import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.overlay.OverlayManager;
 
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.*;
 import java.util.List;
-import java.util.Map;
 import java.util.function.Function;
 
 @Slf4j
@@ -34,9 +37,8 @@ import java.util.function.Function;
 )
 public class EntityMaskerPlugin extends Plugin
 {
-    @Getter
-    private final List<NPC> entities = new ArrayList<>();
-
+    @Inject
+    Client client;
     //Mountain troll
     // targets.contains(name)
     @Inject
@@ -50,6 +52,18 @@ public class EntityMaskerPlugin extends Plugin
 
         log.info("Entity Masker started!");
     }
+
+//    @Subscribe
+//    public void onClientTick(ClientTick clientTick) {
+//        WorldMap worldMap = client.getWorldMap();
+//        WorldMapRenderer wmm = worldMap.getWorldMapRenderer();
+//
+//        if (!wmm.isLoaded())
+//        {
+//            return;
+//        }
+//    }
+
 
     @Override
     protected void shutDown()
