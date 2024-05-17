@@ -1,2 +1,2 @@
-# Example
-An example greeter plugin
+# RuneTube
+Brings RuneScape Youtubers to Runelite.
