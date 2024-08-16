@@ -6,6 +6,9 @@ import net.runelite.api.events.MenuEntryAdded;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
+import net.runelite.client.util.Text;
+import net.runelite.client.util.WildcardMatcher;
+
 import javax.inject.Inject;
 import java.util.Random;
 
@@ -25,9 +28,13 @@ public class PetTheCapybaraPlugin extends Plugin
 		Player local = client.getLocalPlayer();
 		MenuEntry target = event.getMenuEntry();
 
-		int c = event.getIdentifier();
-		if(c == 1057 || c == 1060 || c == 24786 || c == 24784 || c == 24776 || c == 24773 ||
-				c == 24770 || c == 24769 || c == 24783)
+		String c = target.getTarget();
+
+		c = Text.removeTags(c);
+		c = Text.standardize(c);
+
+		if(c.equalsIgnoreCase("Capybara") ||
+				c.equalsIgnoreCase("Capybara pup"))
 		{
 			if (checkDistance(local, target)) {
 				client.createMenuEntry(0)

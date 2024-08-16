@@ -23,8 +23,9 @@ dependencies {
 	testImplementation group: 'net.runelite', name:'jshell', version: runeLiteVersion
 }
 
+
 group = 'com.PetTheCapybara'
-version = '1.0-SNAPSHOT'
+version = '2.0'
 
 tasks.withType(JavaCompile) {
 	options.encoding = 'UTF-8'
