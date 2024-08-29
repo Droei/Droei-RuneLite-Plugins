@@ -1,9 +1,9 @@
-package be.droei.entityMasker.overlay;
+package be.Droei.entityMasker.overlay;
 
-import be.droei.entityMasker.managers.EntityManager;
-import be.droei.entityMasker.managers.ImageManager;
-import be.droei.entityMasker.managers.MaskManager;
-import be.droei.entityMasker.config.EntityMaskerConfig;
+import be.Droei.entityMasker.Managers.EntityManager;
+import be.Droei.entityMasker.Managers.ImageManager;
+import be.Droei.entityMasker.Managers.MaskManager;
+import be.Droei.entityMasker.config.EntityMaskerConfig;
 import net.runelite.api.Client;
 import net.runelite.api.NPC;
 import net.runelite.client.ui.overlay.Overlay;
@@ -41,7 +41,11 @@ public class EntityMaskerPluginOverlay extends Overlay {
     @Override
     public Dimension render(Graphics2D graphics) {
         npcs = entityManager.updateConfigEntities();
+
+        // This line is known to cause lagg
+        // I will fix this soon, set it false in config, set a warning and communicated to users
         if(config.showImages()) imageManager.placeImage(npcs, graphics, client);
+
         maskManager.maskEntities(npcs);
 
         return null;

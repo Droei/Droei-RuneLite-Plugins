@@ -1,4 +1,4 @@
-package be.droei.entityMasker.config;
+package be.Droei.entityMasker.config;
 
 import net.runelite.client.config.Alpha;
 import net.runelite.client.config.Config;
@@ -12,12 +12,12 @@ public interface EntityMaskerConfig extends Config {
     @ConfigItem(
             position = 1,
             keyName = "showImage",
-            name = "Display images over masks",
-            description = "Displays a random image over the masked entities, these can be changed in the mask images folder."
+            name = "CAN CAUSE LAGG - Display images over masks",
+            description = "CAN CAUSE FPS DROPS - Displays a jad image over masked entities."
     )
     default boolean showImages()
     {
-        return true;
+        return false;
     }
 
     @ConfigItem(

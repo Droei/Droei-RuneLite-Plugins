@@ -1,8 +1,6 @@
-package be.droei.entityMasker.managers;
+package be.Droei.entityMasker.Managers;
 
-import be.droei.entityMasker.config.EntityMaskerConfig;
-import lombok.AccessLevel;
-import lombok.Getter;
+import be.Droei.entityMasker.config.EntityMaskerConfig;
 import net.runelite.api.NPC;
 import net.runelite.client.callback.Hooks;
 import net.runelite.client.game.npcoverlay.HighlightedNpc;

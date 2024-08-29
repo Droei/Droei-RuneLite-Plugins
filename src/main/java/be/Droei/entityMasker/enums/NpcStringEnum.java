@@ -1,4 +1,4 @@
-package be.droei.entityMasker.enums;
+package be.Droei.entityMasker.enums;
 
 public enum NpcStringEnum {
     EPILEPSY(",Wyrm,Killerwatt"),

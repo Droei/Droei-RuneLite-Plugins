@@ -1,7 +1,7 @@
-package be.droei.entityMasker.managers;
+package be.Droei.entityMasker.Managers;
 
-import be.droei.entityMasker.config.EntityMaskerConfig;
-import be.droei.entityMasker.enums.NpcStringEnum;
+import be.Droei.entityMasker.config.EntityMaskerConfig;
+import be.Droei.entityMasker.enums.NpcStringEnum;
 import lombok.Getter;
 import net.runelite.api.Client;
 import net.runelite.api.NPC;

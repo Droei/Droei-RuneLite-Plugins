@@ -1,7 +1,7 @@
-package be.droei.entityMasker.managers;
+package be.Droei.entityMasker.Managers;
 
-import be.droei.entityMasker.config.EntityMaskerConfig;
-import be.droei.entityMasker.overlay.EntityMaskerPluginOverlay;
+import be.Droei.entityMasker.config.EntityMaskerConfig;
+import be.Droei.entityMasker.overlay.EntityMaskerPluginOverlay;
 import net.runelite.api.Client;
 import net.runelite.api.NPC;
 import net.runelite.api.Point;
